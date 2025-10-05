@@ -84,6 +84,10 @@ def reducir(dataset_name, tecnica_name):
         print(f"   • Muestras: {X_reducido.shape[0]}")
         print(f"   • Características reducidas: {X_reducido.shape[1]}")
         print(f"   • Forma original: {X.shape} → Nueva forma: {X_reducido.shape}")
+        
+        if tecnica_name == "PCA":
+            print(f"   • Varianza explicada: {modelo.explained_variance_ratio_}")
+            print(f"   • Varianza total explicada: {sum(modelo.explained_variance_ratio_):.3f}")
 
         unique, counts = np.unique(y, return_counts=True)
         print(f"   • Distribución de clases:")
